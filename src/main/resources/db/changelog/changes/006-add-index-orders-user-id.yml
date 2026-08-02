@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 006-add-index-orders-user-id
+      author: max203383@gmail.com
+      changes:
+        - createIndex:
+            indexName: idx_orders_user_id
+            tableName: orders
+            columns:
+              - column:
+                  name: user_id

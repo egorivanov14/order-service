@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 008-add-index-order-items-item-id
+      author: max203383@gmail.com
+      changes:
+        - createIndex:
+            indexName: idx_order_items_item_id
+            tableName: order_items
+            columns:
+              - column:
+                  name: item_id
