@@ -1,0 +1,19 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: orderservice
+
+  datasource:
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/changelog-master.yml
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
