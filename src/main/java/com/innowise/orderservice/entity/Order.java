@@ -1,5 +1,6 @@
 package com.innowise.orderservice.entity;
 
+import com.innowise.orderservice.dto.OrderStatus;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -20,8 +21,9 @@ public class Order {
   @Column(name = "user_id", nullable = false)
   private Long userId;
 
+  @Enumerated(EnumType.STRING)
   @Column(name = "status", nullable = false, length = 50)
-  private String status;
+  private OrderStatus status;
 
   @Column(name = "total_price", nullable = false)
   private Long totalPrice = 0L;
@@ -59,11 +61,11 @@ public class Order {
     this.userId = userId;
   }
 
-  public String getStatus() {
+  public OrderStatus getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(OrderStatus status) {
     this.status = status;
   }
 
@@ -101,5 +103,9 @@ public class Order {
 
   public void addOrderItem(OrderItem orderItem) {
     this.orderItems.add(orderItem);
+  }
+
+  public List<OrderItem> getOrderItems() {
+    return orderItems;
   }
 }

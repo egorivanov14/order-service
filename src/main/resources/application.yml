@@ -17,3 +17,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: validate
+
+services:
+ user-service:
+   url: ${USER_SERVICE_URL}
+   get-uri: ${GET_USER_URI}

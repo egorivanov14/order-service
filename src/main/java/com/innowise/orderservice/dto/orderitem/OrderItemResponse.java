@@ -1,4 +1,6 @@
-package com.innowise.orderservice.dto;
+package com.innowise.orderservice.dto.orderitem;
+
+import com.innowise.orderservice.dto.item.ItemResponse;
 
 import java.time.LocalDateTime;
 

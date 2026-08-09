@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 003-create-order-items-table
+      id: 003-create-order-orderItems-table
       author: max203383@gmail.com
       changes:
         - createTable:
@@ -25,6 +25,18 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: quantity
-                  type: int
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValueComputed: CURRENT_TIMESTAMP
                   constraints:
                     nullable: false
