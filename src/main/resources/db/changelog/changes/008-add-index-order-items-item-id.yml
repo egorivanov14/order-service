@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 008-add-index-order-items-item-id
+      id: 008-add-index-order-orderItems-item-id
       author: max203383@gmail.com
       changes:
         - createIndex:

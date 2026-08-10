@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 009-add-unique-constraint-order-items-order-id-item-id
+      id: 009-add-unique-constraint-order-orderItems-order-id-item-id
       author: max203383@gmail.com
       changes:
         - addUniqueConstraint:

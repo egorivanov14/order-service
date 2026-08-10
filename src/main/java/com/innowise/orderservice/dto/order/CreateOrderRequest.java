@@ -1,5 +1,6 @@
-package com.innowise.orderservice.dto;
+package com.innowise.orderservice.dto.order;
 
+import com.innowise.orderservice.dto.orderitem.CreateOrderItemRequest;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
@@ -11,6 +12,6 @@ public record CreateOrderRequest(
 
         @NotNull
         @Valid
-        List<CreateOrderItemRequest> items
+        List<CreateOrderItemRequest> orderItems
 ) {
 }

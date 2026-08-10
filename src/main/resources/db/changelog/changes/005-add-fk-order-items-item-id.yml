@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 005-add-fk-order-items-item-id
+      id: 005-add-fk-order-orderItems-item-id
       author: max203383@gmail.com
       changes:
         - addForeignKeyConstraint:

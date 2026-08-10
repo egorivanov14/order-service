@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 002-create-items-table
+      id: 002-create-orderItems-table
       author: max203383@gmail.com
       changes:
         - createTable:

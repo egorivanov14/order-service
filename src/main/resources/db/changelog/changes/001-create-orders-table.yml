@@ -26,6 +26,7 @@ databaseChangeLog:
               - column:
                   name: total_price
                   type: bigint
+                  defaultValueComputed: '0'
                   constraints:
                     nullable: false
               - column:
