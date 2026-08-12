@@ -9,7 +9,10 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface OrderItemMapper {
 
-  @Mapping(target = "orderId", source = "order.id")
+  @Mapping(target = "id", source = "orderItem.id")
+  @Mapping(target = "orderId", source = "orderItem.order.id")
   @Mapping(target = "item", source = "itemResponse")
+  @Mapping(target = "createdAt", source = "orderItem.createdAt")
+  @Mapping(target = "updatedAt", source = "orderItem.updatedAt")
   OrderItemResponse toOrderItemResponse(OrderItem orderItem, ItemResponse itemResponse);
 }
