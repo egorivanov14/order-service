@@ -114,12 +114,14 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
+  @Transactional(readOnly = true)
   public Page<OrderResponse> findAll(Pageable pageable) {
     Page<Order> orders = orderRepository.findAll(pageable);
     return extractOrderResponsePage(pageable, orders);
   }
 
   @Override
+  @Transactional(readOnly = true)
   public Page<OrderResponse> findAllAndFilterByCreationDateAndStatus(Pageable pageable, LocalDateTime creationDate, OrderStatus orderStatus) {
     Specification<Order> creationDateSpecification = OrderSpecification.filterByCreationDate(creationDate);
     Specification<Order> statusSpecification = OrderSpecification.filterByStatus(orderStatus);
