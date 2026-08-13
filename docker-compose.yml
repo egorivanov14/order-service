@@ -11,7 +11,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  app:
+  order-service:
     build: .
     ports:
       - "8082:8082"
