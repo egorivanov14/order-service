@@ -1,3 +1,2 @@
-services:
-  user-service:
-    url: http://localhost:8080
+service:
+  secret: b0f9e70f427eb0e6e942268b065afe24928ff74acade37458c7f3994d6999f9b

@@ -1,6 +1,6 @@
 package com.innowise.orderservice.unit.service;
 
-import com.innowise.orderservice.client.UserServiceClient;
+import com.innowise.orderservice.client.GrpcClientService;
 import com.innowise.orderservice.client.dto.UserInfoResponse;
 import com.innowise.orderservice.dto.OrderStatus;
 import com.innowise.orderservice.dto.item.ItemResponse;
@@ -45,7 +45,7 @@ class OrderServiceImplTest {
   @Mock
   private ItemRepository itemRepository;
   @Mock
-  private UserServiceClient userServiceClient;
+  private GrpcClientService grpcClientService;
   @Mock
   private OrderRepository orderRepository;
   @Mock
@@ -75,7 +75,7 @@ class OrderServiceImplTest {
 
     when(itemRepository.findById(ITEM_ID)).thenReturn(Optional.of(item));
     when(orderRepository.save(any(Order.class))).thenAnswer(inv -> inv.getArgument(0));
-    when(userServiceClient.getUserInfo(USER_ID)).thenReturn(userInfoResponse);
+    when(grpcClientService.getUserInfo(USER_ID)).thenReturn(userInfoResponse);
     when(itemMapper.toItemResponse(item)).thenReturn(itemResponse);
     when(orderItemMapper.toOrderItemResponse(any(OrderItem.class), eq(itemResponse)))
             .thenReturn(orderItemResponse);
@@ -113,7 +113,7 @@ class OrderServiceImplTest {
     when(itemRepository.findById(ITEM_ID)).thenReturn(Optional.of(item1));
     when(itemRepository.findById(200L)).thenReturn(Optional.of(item2));
     when(orderRepository.save(any(Order.class))).thenAnswer(inv -> inv.getArgument(0));
-    when(userServiceClient.getUserInfo(USER_ID)).thenReturn(mock(UserInfoResponse.class));
+    when(grpcClientService.getUserInfo(USER_ID)).thenReturn(mock(UserInfoResponse.class));
     when(itemMapper.toItemResponse(any(Item.class))).thenReturn(mock(ItemResponse.class));
     when(orderItemMapper.toOrderItemResponse(any(OrderItem.class), any(ItemResponse.class)))
             .thenReturn(mock(OrderItemResponse.class));
@@ -278,7 +278,7 @@ class OrderServiceImplTest {
     ItemResponse itemResponse = mock(ItemResponse.class);
     OrderItemResponse orderItemResponse = mock(OrderItemResponse.class);
 
-    when(userServiceClient.getUserInfo(order.getUserId())).thenReturn(userInfoResponse);
+    when(grpcClientService.getUserInfo(order.getUserId())).thenReturn(userInfoResponse);
     when(itemMapper.toItemResponse(any(Item.class))).thenReturn(itemResponse);
     when(orderItemMapper.toOrderItemResponse(any(OrderItem.class), eq(itemResponse)))
             .thenReturn(orderItemResponse);

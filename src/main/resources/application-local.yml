@@ -1,3 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:${POSTGRES_PORT}/${POSTGRES_DB}
+    url: jdbc:postgresql://localhost:${ORDERSERVICE_POSTGRES_PORT}/${ORDERSERVICE_POSTGRES_DB}
+
+grpc:
+  client:
+    orderClientService:
+      address: localhost:9090
+      negotiation-type: PLAINTEXT

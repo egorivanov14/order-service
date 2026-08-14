@@ -18,7 +18,10 @@ spring:
     hibernate:
       ddl-auto: validate
 
-services:
- user-service:
-   url: ${USER_SERVICE_URL}
-   get-uri: ${GET_USER_URI}
+service:
+  secret: ${SERVER_SECRET_KEY}
+
+logging:
+  level:
+    root: INFO
+    com.innowise.orderservice: DEBUG

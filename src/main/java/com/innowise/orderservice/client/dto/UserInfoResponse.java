@@ -9,7 +9,7 @@ public record UserInfoResponse(
         String surname,
         LocalDate birthDate,
         String email,
-        boolean active,
+        boolean isActive,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
 ) {

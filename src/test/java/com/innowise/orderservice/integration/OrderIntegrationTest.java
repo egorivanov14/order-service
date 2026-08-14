@@ -1,6 +1,6 @@
 package com.innowise.orderservice.integration;
 
-import com.innowise.orderservice.client.UserServiceClient;
+import com.innowise.orderservice.client.GrpcClientService;
 import com.innowise.orderservice.client.dto.UserInfoResponse;
 import com.innowise.orderservice.dto.OrderStatus;
 import com.innowise.orderservice.dto.order.CreateOrderRequest;
@@ -49,7 +49,7 @@ class OrderIntegrationTest extends TestcontainersConfiguration {
   private ItemRepository itemRepository;
 
   @MockitoBean
-  private UserServiceClient userServiceClient;
+  private GrpcClientService grpcClientService;
 
   private MockMvc mockMvc;
   private Long itemId;
@@ -65,7 +65,7 @@ class OrderIntegrationTest extends TestcontainersConfiguration {
 
     UserInfoResponse userInfoResponse =
             new UserInfoResponse(USER_ID, USER_NAME, USER_SURNAME, null, USER_EMAIL, TRUE, null, null);
-    when(userServiceClient.getUserInfo(USER_ID)).thenReturn(userInfoResponse);
+    when(grpcClientService.getUserInfo(USER_ID)).thenReturn(userInfoResponse);
   }
 
   @AfterEach
