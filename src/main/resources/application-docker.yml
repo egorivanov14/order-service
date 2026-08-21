@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://orderservice-db:5432/${ORDERSERVICE_POSTGRES_DB}
+
+grpc:
+  client:
+    orderClientService:
+      address: userservice:9090
+      negotiation-type: PLAINTEXT

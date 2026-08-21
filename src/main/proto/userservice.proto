@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.innowise.userservice;
+
+option java_package = "com.innowise.userservice.grpc";
+option java_outer_classname = "UserServiceProto";
+
+service UserService {
+  rpc GetUserInfo (GetUserInfoRequest) returns (UserInfoResponse) {}
+}
+
+message GetUserInfoRequest {
+  int64 userId = 1;
+}
+
+message UserInfoResponse {
+  int64 id = 1;
+  string name = 2;
+  string surname = 3;
+  string birthDate = 4;
+  string email = 5;
+  bool isActive = 6;
+  string createdAt = 7;
+  string updatedAt = 8;
+}

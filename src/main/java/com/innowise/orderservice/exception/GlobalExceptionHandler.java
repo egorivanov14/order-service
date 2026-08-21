@@ -40,7 +40,7 @@ public class GlobalExceptionHandler {
   }
 
   @ExceptionHandler(UserServiceException.class)
-  public ResponseEntity<ErrorResponse> handleException(UserServiceException e) {
+  public ResponseEntity<ErrorResponse> handleUserServiceException(UserServiceException e) {
     int code = HttpStatus.INTERNAL_SERVER_ERROR.value();
     String message = e.getMessage();
     LocalDateTime now = LocalDateTime.now();
